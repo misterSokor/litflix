@@ -1,5 +1,6 @@
 package com.store.litflix.repository.impl;
 
+import com.store.litflix.exception.DataProcessingException;
 import com.store.litflix.model.Book;
 import com.store.litflix.repository.BookRepository;
 import java.util.List;
@@ -32,7 +33,7 @@ public class BookRepositoryImpl implements BookRepository {
             if (session != null) {
                 session.getTransaction().rollback();
             }
-            throw new RuntimeException("Can't insert Book entity", e);
+            throw new DataProcessingException("Can't insert Book entity", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -45,7 +46,7 @@ public class BookRepositoryImpl implements BookRepository {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery("from Book", Book.class).list();
         } catch (Exception e) {
-            throw new RuntimeException("Can't get all Book entities", e);
+            throw new DataProcessingException("Can't get all Book entities", e);
         }
     }
 }
