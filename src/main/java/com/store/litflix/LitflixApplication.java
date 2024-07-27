@@ -23,7 +23,7 @@ public class LitflixApplication {
         return args -> {
             Book book = new Book();
             book.setTitle("The Lord of the Rings");
-            book.setCoverImageUrl("/images/The Lord of the Rings.jpeg");
+            book.setCoverImage("/images/The Lord of the Rings.jpeg");
             book.setAuthor("J.R.R. Tolkien");
             book.setPrice(BigDecimal.valueOf(100.00));
             book.setDescription("The Lord of the Rings is an epic high-fantasy novel");
