@@ -22,9 +22,6 @@ public class Book {
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String coverImage;
-
-    @Column(nullable = false, length = 100)
     private String title;
 
     @Column(nullable = false, length = 100)
@@ -37,4 +34,7 @@ public class Book {
     private BigDecimal price;
 
     private String description;
+
+    @Column(nullable = false, length = 100)
+    private String coverImage;
 }
