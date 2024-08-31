@@ -1,12 +1,12 @@
 package com.store.litflix.repository;
 
 import com.store.litflix.model.Book;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BookRepository {
-    Book save(Book book);
-
-    List<Book> findAll();
-
-    Book findById(Long id);
+public interface BookRepository extends JpaRepository<Book, Long> {
+//    Book save(Book book);
+//
+//    List<Book> findAll();
+//
+//    Book findById(Long id);
 }
