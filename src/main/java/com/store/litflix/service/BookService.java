@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface BookService {
     BookDto save(CreateBookRequestDto requestDto);
 
-    List<Book> findAll();
+    List<BookDto> findAll();
 
     Optional<Book> findById(Long id);
 

@@ -35,7 +35,7 @@ public class BookController extends HttpServlet {
     }
 
     @GetMapping
-    List<Book> getAllBooks() {
+    List<BookDto> getAllBooks() {
         return bookService.findAll();
     }
 
