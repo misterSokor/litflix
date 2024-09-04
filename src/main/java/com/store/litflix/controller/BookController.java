@@ -25,27 +25,28 @@ public class BookController extends HttpServlet {
     private final BookService bookService;
 
     @PostMapping
-    BookDto createBook(@RequestBody CreateBookRequestDto requestDto) {
+    public BookDto createBook(@RequestBody CreateBookRequestDto requestDto) {
         return bookService.save(requestDto);
     }
 
     @GetMapping("/{id}")
-    Optional<Book> getBook(@PathVariable Long id) {
+    public Optional<Book> getBook(@PathVariable Long id) {
         return bookService.findById(id);
     }
 
     @GetMapping
-    List<BookDto> getAllBooks() {
+    public List<BookDto> getAllBooks() {
         return bookService.findAll();
     }
 
     @PutMapping("/{id}")
-    BookDto updateBook(@PathVariable Long id, @RequestBody UpdateBookRequestDto requestDto) {
+    public BookDto updateBook(@PathVariable Long id,
+                        @RequestBody UpdateBookRequestDto requestDto) {
         return bookService.updateBook(id, requestDto);
     }
 
     @DeleteMapping("/{id}")
-    void deleteById(@PathVariable Long id) {
+    public void deleteById(@PathVariable Long id) {
         bookService.deleteById(id);
     }
 }
