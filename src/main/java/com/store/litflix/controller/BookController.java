@@ -3,11 +3,9 @@ package com.store.litflix.controller;
 import com.store.litflix.dto.BookDto;
 import com.store.litflix.dto.CreateBookRequestDto;
 import com.store.litflix.dto.UpdateBookRequestDto;
-import com.store.litflix.model.Book;
 import com.store.litflix.service.BookService;
 import jakarta.servlet.http.HttpServlet;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +28,7 @@ public class BookController extends HttpServlet {
     }
 
     @GetMapping("/{id}")
-    public Optional<Book> getBook(@PathVariable Long id) {
+    public BookDto getBook(@PathVariable Long id) {
         return bookService.findById(id);
     }
 

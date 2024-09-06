@@ -9,7 +9,6 @@ import com.store.litflix.model.Book;
 import com.store.litflix.repository.BookRepository;
 import com.store.litflix.service.BookService;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +34,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Optional<Book> findById(Long id) {
-        return bookRepository.findById(id);
+    public BookDto findById(Long id) {
+        Book bookById = bookRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Book not "
+                                                               + "found with id " + id));
+        return bookMapper.toDto(bookById);
     }
 
     @Override
